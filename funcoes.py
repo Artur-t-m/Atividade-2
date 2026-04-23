@@ -64,3 +64,15 @@ def calcula_pontos_full_house(lista_dados): #Ou era dicionário ou era 1000000 d
         return soma 
     else:
         return 0
+
+def calcula_pontos_quadra(lista_dados):
+    dict_dados = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
+    for dado in lista_dados:
+        dict_dados[dado] += 1
+    if 4 in dict_dados.values():
+        soma = 0
+        for i in range(len(lista_dados)):
+            soma += lista_dados[i]
+        return soma 
+    else:
+        return 0
