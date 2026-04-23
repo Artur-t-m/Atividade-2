@@ -62,3 +62,5 @@ def calcula_pontos_full_house(lista_dados): #Ou era dicionário ou era 1000000 d
         for i in range(len(lista_dados)):
             soma += lista_dados[i]
         return soma 
+    else:
+        return 0
