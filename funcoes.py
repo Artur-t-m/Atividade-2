@@ -82,9 +82,6 @@ def calcula_pontos_quina(lista_dados):
     for dado in lista_dados:
         dict_dados[dado] += 1               #Melhor não ter erro na entrega, gastei boa parte do meu tempo só fazendo essa parte, denovo
     if 5 in dict_dados.values() or 6 in dict_dados.values() or 7 in dict_dados.values() or 8 in dict_dados.values() or 9 in dict_dados.values() or 10 in dict_dados.values():
-        soma = 0
-        for i in range(len(lista_dados)):
-            soma += lista_dados[i]
-        return soma 
+        return 50
     else:
         return 0
