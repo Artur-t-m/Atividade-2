@@ -25,6 +25,6 @@ def calcula_pontos_regra_simples(lista_dados):
 
 def calcula_pontos_soma(lista_dados):
     soma = 0
-    for i in range(len(lista_dados)-1):
+    for i in range(len(lista_dados)):
         soma += lista_dados[i]
     return soma
