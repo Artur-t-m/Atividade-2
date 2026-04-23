@@ -69,7 +69,7 @@ def calcula_pontos_quadra(lista_dados):
     dict_dados = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
     for dado in lista_dados:
         dict_dados[dado] += 1
-    if 4 in dict_dados.values():
+    if 4 in dict_dados.values() or 5 in dict_dados.values():
         soma = 0
         for i in range(len(lista_dados)):
             soma += lista_dados[i]
