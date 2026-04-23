@@ -28,3 +28,15 @@ def calcula_pontos_soma(lista_dados):
     for i in range(len(lista_dados)):
         soma += lista_dados[i]
     return soma
+def calcula_pontos_sequencia_baixa(lista_dados):
+    dict_dados = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
+    for dado in lista_dados:
+        dict_dados[dado] += 1
+    if dict_dados[1] >= 1 and dict_dados[2] >= 1 and dict_dados[3] >= 1 and dict_dados[4] >= 1:
+        return 15
+    elif dict_dados[2] >= 1 and dict_dados[3] >= 1 and dict_dados[4] >= 1 and dict_dados[5] >= 1:
+        return 15
+    elif dict_dados[3] >= 1 and dict_dados[4] >= 1 and dict_dados[5] >= 1 and dict_dados[6] >= 1:
+        return 15
+    else:
+        return 0
