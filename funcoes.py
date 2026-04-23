@@ -19,6 +19,6 @@ def remover_dado(dados_rolados, dados_no_estoque, dados_para_remover):
 
 def calcula_pontos_regra_simples(lista_dados):
     pontos = 0
-    for i in range(len(lista_dados)):
+    for i in range(len(lista_dados)-1):
         pontos += lista_dados[i]
     return pontos
