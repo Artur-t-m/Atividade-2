@@ -111,4 +111,4 @@ def faz_jogada(dados, categoria, cartela):
         cartela["regra_avancada"]["cinco_iguais"] = calcula_pontos_regra_avancada(dados)["cinco_iguais"]
     else:
         cartela["regra_simples"][categoria] = calcula_pontos_regra_simples(dados)[int(categoria)]
-        return cartela
+    return cartela
