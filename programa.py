@@ -9,7 +9,7 @@ while rodada<12:
     acao = input("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
     while acao != "0":
         if acao == "1":
-            while pos_dado >= len(dados_em_jogo)-1 or pos_dado < 0:
+            while True:
                 pos_dado = int(input("Digite o índice do dado a ser guardado (0 a 4):"))
                 if pos_dado >= len(dados_em_jogo)-1 or pos_dado < 0:
                     print("Opção inválida. Tente novamente.")
@@ -17,7 +17,7 @@ while rodada<12:
                     dados_em_jogo, dados_no_estoque = guardar_dado(dados_em_jogo, dados_no_estoque, pos_dado)
                     break
         elif acao == "2":
-            while pos_dado >= len(dados_no_estoque)-1 or pos_dado < 0:
+            while True:
                 pos_dado = int(input("Digite o índice do dado a ser removido (0 a 4):"))
                 if pos_dado >= len(dados_no_estoque)-1 or pos_dado < 0:
                     print("Opção inválida. Tente novamente.")
