@@ -95,3 +95,20 @@ def calcula_pontos_regra_avancada(lista_dados):
     dict_pontos["sequencia_alta"] = calcula_pontos_sequencia_alta(lista_dados)
     dict_pontos["sequencia_baixa"] = calcula_pontos_sequencia_baixa(lista_dados)
     return dict_pontos
+
+def faz_jogada(dados, categoria, cartela):
+    if categoria == "sem_combinacao":
+        cartela["regra_avancada"]["sem_combinacao"] = calcula_pontos_regra_avancada(dados)["sem_combinacao"]
+    elif categoria == "quadra":
+        cartela["regra_avancada"]["quadra"] = calcula_pontos_regra_avancada(dados)["quadra"]
+    elif categoria == "full_house":
+        cartela["regra_avancada"]["full_house"] = calcula_pontos_regra_avancada(dados)["full_house"]
+    elif categoria == "sequencia_baixa":
+        cartela["regra_avancada"]["sequencia_baixa"] = calcula_pontos_regra_avancada(dados)["sequencia_baixa"]
+    elif categoria == "sequencia_alta":
+        cartela["regra_avancada"]["sequencia_alta"] = calcula_pontos_regra_avancada(dados)["sequencia_alta"]
+    elif categoria == "cinco_iguais":
+        cartela["regra_avancada"]["cinco_iguais"] = calcula_pontos_regra_avancada(dados)["cinco_iguais"]
+    else:
+        cartela["regra_simples"][categoria] = calcula_pontos_regra_simples(dados)[categoria]
+        return cartela
