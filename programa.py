@@ -9,9 +9,9 @@ while rodada<12:
     acao = input("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
     while acao != "0":
         if acao == "1":
-            dados_em_jogo, dados_em_estoque = guardar_dado(dados_em_jogo, dados_no_estoque, int("Digite o índice do dado a ser guardado (0 a 4):"))
+            dados_em_jogo, dados_em_estoque = guardar_dado(dados_em_jogo, dados_no_estoque, int(input("Digite o índice do dado a ser guardado (0 a 4):")))
         elif acao == "2":
-            dados_em_jogo, dados_em_estoque = remover_dado(dados_em_jogo, dados_no_estoque, int("Digite o índice do dado a ser removido (0 a 4):"))
+            dados_em_jogo, dados_em_estoque = remover_dado(dados_em_jogo, dados_no_estoque, int(input("Digite o índice do dado a ser removido (0 a 4):")))
         elif acao == "3":
             if reroll == 2:
                 print("Você já usou todas as rerrolagens.")
