@@ -9,9 +9,21 @@ while rodada<12:
     acao = input("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
     while acao != "0":
         if acao == "1":
-            dados_em_jogo, dados_em_estoque = guardar_dado(dados_em_jogo, dados_no_estoque, int(input("Digite o índice do dado a ser guardado (0 a 4):")))
+            while pos_dado >= len(dados_em_jogo)-1 or pos_dado < 0:
+                pos_dado = int(input("Digite o índice do dado a ser guardado (0 a 4):"))
+                if pos_dado >= len(dados_em_jogo)-1 or pos_dado < 0:
+                    print("Opção inválida. Tente novamente.")
+                else:
+                    dados_em_jogo, dados_no_estoque = guardar_dado(dados_em_jogo, dados_no_estoque, pos_dado)
+                    break
         elif acao == "2":
-            dados_em_jogo, dados_em_estoque = remover_dado(dados_em_jogo, dados_no_estoque, int(input("Digite o índice do dado a ser removido (0 a 4):")))
+            while pos_dado >= len(dados_no_estoque)-1 or pos_dado < 0:
+                pos_dado = int(input("Digite o índice do dado a ser removido (0 a 4):"))
+                if pos_dado >= len(dados_no_estoque)-1 or pos_dado < 0:
+                    print("Opção inválida. Tente novamente.")
+                else:
+                    dados_em_jogo, dados_em_estoque = remover_dado(dados_em_jogo, dados_no_estoque, pos_dado)
+                    break
         elif acao == "3":
             if reroll == 2:
                 print("Você já usou todas as rerrolagens.")
@@ -27,15 +39,19 @@ while rodada<12:
                 if categoria == "sem_combinacao" or categoria == "quadra" or categoria == "full_house" or categoria == "sequencia_baixa" or categoria == "sequencia_alta" or categoria == "cinco_iguais":
                     if cartela["regra_avancada"][categoria] != -1:
                         print("Essa combinação já foi utilizada.")
-                    cartela = faz_jogada(dados_totais, categoria, cartela)
-                    rodada += 1
+                    else:
+                        cartela = faz_jogada(dados_totais, categoria, cartela)
+                        rodada += 1
                     break
                 elif categoria in ["1", "2", "3", "4", "5", "6"]:
                     if cartela["regra_simples"][int(categoria)] != -1:
                         print("Essa combinação já foi utilizada.")
-                    cartela = faz_jogada(dados_totais, categoria, cartela)
-                    rodada += 1
-                    break
+                    else:
+                        cartela = faz_jogada(dados_totais, categoria, cartela)
+                        rodada += 1
+                        break
+                else:
+                    print("Combinação inválida. Tente novamente.")
         else:
             print("Opção inválida, tente novamente.")
 
