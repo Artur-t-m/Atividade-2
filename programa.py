@@ -21,18 +21,19 @@ while rodada<12:
         elif acao == "4":
             imprime_cartela(cartela)
         elif acao == "0":
+            dados_totais = dados_em_jogo + dados_no_estoque
             while True:
                 categoria = input("Digite a combinação desejada:")
                 if categoria == "sem_combinacao" or categoria == "quadra" or categoria == "full_house" or categoria == "sequencia_baixa" or categoria == "sequencia_alta" or categoria == "cinco_iguais":
                     if cartela["regra_avancada"][categoria] != -1:
                         print("Essa combinação já foi utilizada.")
-                    cartela = faz_jogada(dados_em_jogo, categoria, cartela)
+                    cartela = faz_jogada(dados_totais, categoria, cartela)
                     rodada += 1
                     break
                 elif categoria in ["1", "2", "3", "4", "5", "6"]:
                     if cartela["regra_simples"][int(categoria)] != -1:
                         print("Essa combinação já foi utilizada.")
-                    cartela = faz_jogada(dados_em_jogo, categoria, cartela)
+                    cartela = faz_jogada(dados_totais, categoria, cartela)
                     rodada += 1
                     break
         else:
