@@ -17,8 +17,7 @@ while rodada < 12:
         acao = input(">")
 
         if acao == "1":
-            print("Digite o índice do dado a ser guardado (0 a 4):")
-            pos = int(input(">"))
+            pos = int(input("Digite o índice do dado a ser guardado (0 a 4): "))
             if pos < 0 or pos >= len(dados_em_jogo):
                 print("Opção inválida. Tente novamente.")
             else:
@@ -75,10 +74,19 @@ while rodada < 12:
 
 pontuacao = 0
 
-soma_simples = sum(cartela["regra_simples"].values())
+oma_simples = 0
+for v in cartela["regra_simples"].values():
+    if v != -1:
+        soma_simples += v
+
 pontuacao += soma_simples
 
-pontuacao += sum(cartela["regra_avancada"].values())
+soma_avancada = 0
+for v in cartela["regra_avancada"].values():
+    if v != -1:
+        soma_avancada += v
+
+pontuacao += soma_avancada
 
 if soma_simples >= 63:
     pontuacao += 35
