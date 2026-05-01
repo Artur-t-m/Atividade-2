@@ -16,16 +16,18 @@ while rodada < 12:
         acao = input(">")
 
         if acao == "1":
-            print("Digite o índice do dado a ser guardado (0 a 4):")
+            print(f"Digite o índice do dado a ser guardado (0 a {len(dados_em_jogo)-1}):")
             pos = int(input(">"))
+
             if pos < 0 or pos >= len(dados_em_jogo):
                 print("Opção inválida. Tente novamente.")
             else:
                 dados_em_jogo, dados_no_estoque = guardar_dado(dados_em_jogo, dados_no_estoque, pos)
 
         elif acao == "2":
-            print("Digite o índice do dado a ser removido (0 a 4):")
+            print(f"Digite o índice do dado a ser removido (0 a {len(dados_no_estoque)-1}):")
             pos = int(input(">"))
+
             if pos < 0 or pos >= len(dados_no_estoque):
                 print("Opção inválida. Tente novamente.")
             else:
@@ -74,10 +76,10 @@ while rodada < 12:
 
 pontuacao = 0
 
-soma_simples = sum(cartela["regra_simples"].values())
+soma_simples = sum(v for v in cartela["regra_simples"].values() if v != -1)
 pontuacao += soma_simples
 
-pontuacao += sum(cartela["regra_avancada"].values())
+pontuacao += sum(v for v in cartela["regra_avancada"].values() if v != -1)
 
 if soma_simples >= 63:
     pontuacao += 35
