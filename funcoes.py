@@ -68,20 +68,17 @@ def calcula_pontos_full_house(lista_dados): #Ou era dicionário ou era 1000000 d
 def calcula_pontos_quadra(lista_dados): 
     dict_dados = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
     for dado in lista_dados:
-        dict_dados[dado] += 1               #Só pra garantir
-    if 4 in dict_dados.values() or 5 in dict_dados.values() or 6 in dict_dados.values() or 7 in dict_dados.values() or 8 in dict_dados.values() or 9 in dict_dados.values() or 10 in dict_dados.values():
-        soma = 0
-        for i in range(len(lista_dados)):
-            soma += lista_dados[i]
-        return soma 
+        dict_dados[dado] += 1
+    if max(dict_dados.values()) >= 4:
+        return sum(lista_dados)
     else:
         return 0
 
 def calcula_pontos_quina(lista_dados):
     dict_dados = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0}
     for dado in lista_dados:
-        dict_dados[dado] += 1               #Melhor não ter erro na entrega, gastei boa parte do meu tempo só fazendo essa parte, denovo
-    if 5 in dict_dados.values() or 6 in dict_dados.values() or 7 in dict_dados.values() or 8 in dict_dados.values() or 9 in dict_dados.values() or 10 in dict_dados.values():
+        dict_dados[dado] += 1
+    if max(dict_dados.values()) == 5:
         return 50
     else:
         return 0
